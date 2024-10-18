@@ -1,0 +1,26 @@
+
+<a routerLink="novo" class="btn btn-primary">Novo</a>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Categoria Pai</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cat of cat$">
+        <th scope="row">{{cat.id}}</th>
+        <td>{{cat.nome}}</td>
+        <td>{{cat.descricao}}</td>
+        <td>{{cat.categoria?.nome}}</td>
+        <td>
+            <a href="#" class="btn btn-primary">Editar</a>
+            <a href="#" class="btn btn-danger">Excluir</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
