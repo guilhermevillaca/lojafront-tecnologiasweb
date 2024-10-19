@@ -18,11 +18,17 @@ export class CategoriaService {
     return this.http.get('http://localhost:8080/categoria/listar').pipe(map(response=>response));    
   }
 
+  public getCategoriaById(id: number){
+    return this.http.get('http://localhost:8080/categoria/listar/'+id).pipe(map(response=>response));    
+  }
+
   public salvar(categoria: Categoria): Observable<Categoria>{
-  
     const headers = new HttpHeaders();
     headers.set("Content-Type", "Application/json");
-
-    return this.http.post<Categoria>('http://localhost:8080/categoria/novo', categoria, {headers});
+    if(categoria.id !== null){
+      return this.http.put<Categoria>(`http://localhost:8080/categoria/atualizar/${categoria.id}`, categoria, {headers});
+    }
+    return this.http.post<Categoria>('http://localhost:8080/categoria/novo', categoria, {headers});  
+    
   }
 }

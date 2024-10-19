@@ -8,7 +8,7 @@ import { ProdutoFormComponent } from './produto/produto-form/produto-form.compon
 export const routes: Routes = [
     {path: 'categoria', component: CategoriaComponent},
     {path: 'categoria/novo', component: CategoriaFormComponent},
-    {path: 'categoria/editar/:id', component: CategoriaComponent},
+    {path: 'categoria/editar/:id', component: CategoriaFormComponent},
     {path: 'produto', component: ProdutoComponent},
     {path: 'produto/novo', component: ProdutoFormComponent},
     {path: '', component: HomeComponent}

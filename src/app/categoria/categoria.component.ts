@@ -3,7 +3,7 @@ import { CategoriaService } from '../service/categoria.service';
 import { lastValueFrom } from 'rxjs';
 import { log } from 'console';
 import { NgFor } from '@angular/common';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-categoria',
@@ -16,8 +16,9 @@ import { RouterLink, RouterModule } from '@angular/router';
 })
 export class CategoriaComponent implements OnInit{
   cat$: any;
+  categoria: any;
 
-  constructor(private categoriaService: CategoriaService){
+  constructor(private categoriaService: CategoriaService, private router: Router){
 
   }
   ngOnInit(): void {
@@ -31,6 +32,8 @@ export class CategoriaComponent implements OnInit{
 
 
   public editar(id: number){
+    //this.categoria = await lastValueFrom(this.categoriaService.getCategoriaById(id));
+    this.router.navigate(['categoria/editar/', id]);
     console.log(id);
   }
 
