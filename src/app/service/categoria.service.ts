@@ -31,4 +31,8 @@ export class CategoriaService {
     return this.http.post<Categoria>('http://localhost:8080/categoria/novo', categoria, {headers});  
     
   }
+
+  public remover(id:number){
+    return this.http.delete<Categoria>('http://localhost:8080/categoria/remover/'+id).pipe(map(response=>response));
+  }
 }
