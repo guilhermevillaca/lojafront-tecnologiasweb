@@ -4,7 +4,7 @@ import { Categoria } from '../../model/categoria.model';
 import { NgFor } from '@angular/common';
 import { CategoriaService } from '../../service/categoria.service';
 import { lastValueFrom } from 'rxjs';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { log } from 'console';
 
 @Component({
@@ -22,7 +22,7 @@ import { log } from 'console';
 export class CategoriaFormComponent implements OnInit{
   cat$: any;
 
-  constructor(private categoriaService: CategoriaService){
+  constructor(private categoriaService: CategoriaService, private router: Router){
 
   }
   ngOnInit(): void {
@@ -59,6 +59,7 @@ export class CategoriaFormComponent implements OnInit{
 
     this.categoriaService.salvar(categoria).subscribe(
       categoria => {
+        this.router.navigate(['categoria']);
         console.log(categoria);
       },
       erro => {
