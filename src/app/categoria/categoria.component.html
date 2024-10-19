@@ -1,0 +1,30 @@
+
+
+<a routerLink="novo" class="btn btn-primary left">Novo</a>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Categoria Pai</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let cat of cat$">
+            <th>{{cat.id}}</th>
+            <th>{{cat.nome}}</th>
+            <th>{{cat.descricao}}</th>
+            <th>{{cat.categoria?.nome}}</th>
+            <th>
+                <a (click)="editar(cat.id)"  class="btn btn-primary">Editar</a>&nbsp;
+                <a (click)="remover(cat.id)" class="btn btn-danger">Excluir</a>                
+            </th>
+        </tr>
+    </tbody>
+
+</table>

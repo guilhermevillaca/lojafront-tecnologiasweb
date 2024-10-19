@@ -1,0 +1,37 @@
+<a routerLink="/categoria" class="btn btn-primary left">Voltar</a>
+
+<form class="form" [formGroup]="form">
+
+    <div class="mb-3">        
+        <label for="id"></label>
+        <input id="id" type="text" class="form-control" placeholder="ID" [formControl]="form.controls.id">
+    </div>
+
+    <div class="mb-3">
+        <label for="nome"></label>
+        <input id="nome" type="text" class="form-control" placeholder="Nome" [formControl]="form.controls.nome">
+    </div>
+    
+    <div class="mb-3">
+        <label for="descricao'"></label>        
+        <input id="descricao" type="text" class="form-control" placeholder="Descricao" [formControl]="form.controls.descricao">
+    </div>
+
+    <div class="mb-3">        
+        <select [formControl]="form.controls.categoria" class="form-select">
+            <option *ngFor="let cat of cat$" value="{{cat.id}}">
+                {{cat.nome}}
+            </option>
+        </select>
+    </div>
+
+    <br>
+
+    <div class="clearfix"></div>
+
+    <div class="container-fluid d-flex justify-contend-end">        
+        <button class="btn btn-primary float-right" (click)="salvar()">Salvar</button>
+    </div>
+
+
+</form>
