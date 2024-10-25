@@ -39,8 +39,7 @@ export class CategoriaComponent implements OnInit{
 
   public async remover(id: number){
     let ret = await lastValueFrom(this.categoriaService.remover(id));
-    console.log(ret);
-    this.router.navigate(['categoria/listar']);
+    this.cat$ = await lastValueFrom(this.categoriaService.getCategorias());
   }
 
 }
