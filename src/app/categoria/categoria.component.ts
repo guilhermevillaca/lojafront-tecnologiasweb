@@ -26,7 +26,7 @@ export class CategoriaComponent implements OnInit{
 
   public async getCategorias(){
     this.cat$ = await lastValueFrom(this.categoriaService.getCategorias());
-    
+    //teste
   }
 
 }
